@@ -1,11 +1,19 @@
 import React from 'react';
-import { Counter } from './features/counter/Counter';
 import './App.css';
+import Header from './components/Header'
+import Balance from './components/Balance'
+import IncomeExpense from './components/IncomeExpense'
+import TransactionsList from './components/TransactionsList';
+import AddTransaction from './components/AddTransaction';
 
 function App() {
   return (
     <div className="App">
-        <Counter />
+        <Header />
+        <Balance />
+        <IncomeExpense />
+        <TransactionsList />
+        <AddTransaction />
     </div>
   );
 }
