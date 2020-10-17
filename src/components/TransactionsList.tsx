@@ -7,8 +7,8 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    marginTop: "5px",
     justifyItems: "center",
+    textAlign: 'center'
   },
   paper: {
     padding: theme.spacing(2),
@@ -26,7 +26,7 @@ const TransactionsList = () => {
   return (
     <div className={classes.root}>
       <Grid container spacing={1} justify="center" alignItems="center">
-        <Grid item xs={3} sm={3}>
+        <Grid item sm={12}>
           <Paper className={classes.paper}>
             <Typography className={classes.title} color="textSecondary" gutterBottom>
                 Transactions History

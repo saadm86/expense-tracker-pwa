@@ -26,7 +26,7 @@ const IncomeExpense = () => {
   return (
     <div className={classes.root}>
       <Grid container spacing={1} justify="center" alignItems="center">
-        <Grid item xs={"auto"} sm={"auto"}>
+        <Grid item sm={6}>
           <Paper className={classes.paper}>
             <Typography className={classes.title} color="textSecondary" gutterBottom>
                 Income
@@ -36,7 +36,7 @@ const IncomeExpense = () => {
             </Typography>
           </Paper>
         </Grid>
-        <Grid item xs={"auto"} sm={"auto"} justify="center" alignItems="center">
+        <Grid item sm={6} justify="center" alignItems="center">
           <Paper className={classes.paper}>
           <Typography className={classes.title} color="textSecondary" gutterBottom>
                 Expenses

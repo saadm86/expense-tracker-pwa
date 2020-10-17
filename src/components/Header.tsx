@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
+      textAlign: 'center'
     },
     menuButton: {
       marginRight: theme.spacing(2),
@@ -23,11 +24,9 @@ const Header = () => {
     return (
       <div className={classes.root}>
         <AppBar position="static">
-          <Toolbar>
             <Typography variant="h6" className={classes.title}>
               Expense Tracker App
             </Typography>
-          </Toolbar>
         </AppBar>
       </div>
     );
