@@ -3,12 +3,16 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import { useSelector, useDispatch } from 'react-redux';
+import { deleteTrans, selectTrans } from '../features/counter/counterSlice';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     justifyItems: "center",
-    textAlign: 'center'
+    textAlign: 'center',
+    opacity: '80%',
   },
   paper: {
     padding: theme.spacing(2),
@@ -22,6 +26,8 @@ const useStyles = makeStyles((theme) => ({
 
 const TransactionsList = () => {
     const classes = useStyles();
+    const transList = useSelector(selectTrans)
+    const dispatch = useDispatch()
 
   return (
     <div className={classes.root}>
@@ -32,7 +38,14 @@ const TransactionsList = () => {
                 Transactions History
             </Typography>
             <Typography variant="h5" component="h2">
-                History here
+                <ul>
+                  {transList.map((key, id) => (
+                    <li key={key.desc}>
+                        {key.desc} <span>{key.amount}</span>
+                        <button onClick={()=>dispatch(deleteTrans(key))}>x</button>
+                    </li>
+                  ))}
+                </ul>
             </Typography>
           </Paper>
         </Grid>

@@ -3,12 +3,15 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import { useSelector } from 'react-redux';
+import { selectTrans } from '../features/counter/counterSlice';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     marginTop: "5px",
     justifyItems: "center",
+    opacity: '80%',
   },
   paper: {
     padding: theme.spacing(2),
@@ -23,6 +26,11 @@ const useStyles = makeStyles((theme) => ({
 const IncomeExpense = () => {
     const classes = useStyles();
 
+    const transList = useSelector(selectTrans)
+    const income = transList.filter(key=>key.amount>0).map(key=>key.amount).reduce((prev,next)=>prev+=next).toFixed(2)
+    const expenses = transList.filter(key=>key.amount<0).map(key=>key.amount).reduce((prev,next)=>prev+=next).toFixed(2)
+    
+
   return (
     <div className={classes.root}>
       <Grid container spacing={1} justify="center" alignItems="center">
@@ -32,7 +40,7 @@ const IncomeExpense = () => {
                 Income
             </Typography>
             <Typography variant="h5" component="h2">
-                PKR 0.00
+                PKR {income}
             </Typography>
           </Paper>
         </Grid>
@@ -42,7 +50,7 @@ const IncomeExpense = () => {
                 Expenses
             </Typography>
             <Typography variant="h5" component="h2">
-                PKR 0.00
+                PKR {-expenses}
             </Typography>
           </Paper>
         </Grid>
