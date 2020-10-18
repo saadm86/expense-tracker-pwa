@@ -23,7 +23,7 @@ const Balance = () => {
     const classes = useStyles();
     const transList = useSelector(selectTrans)
     const amount = transList.map(key=>key.amount)
-    const balance = amount.reduce((prev,next)=> prev+=next).toFixed(2)
+    const balance = amount.reduce((prev,next)=> (prev+=next),0).toFixed(2)
     
     return (
       <Card className={classes.root}>

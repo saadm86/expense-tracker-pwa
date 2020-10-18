@@ -27,9 +27,8 @@ const IncomeExpense = () => {
     const classes = useStyles();
 
     const transList = useSelector(selectTrans)
-    const income = transList.filter(key=>key.amount>0).map(key=>key.amount).reduce((prev,next)=>prev+=next).toFixed(2)
-    const expenses = transList.filter(key=>key.amount<0).map(key=>key.amount).reduce((prev,next)=>prev+=next).toFixed(2)
-    
+    const income = transList.filter(key=>key.amount>0).map(key=>key.amount).reduce((prev,next)=>(prev+=next),0).toFixed(2)
+    const expenses = transList.filter(key=>key.amount<0).map(key=>key.amount).reduce((prev,next)=>(prev+=next),0).toFixed(2)
 
   return (
     <div className={classes.root}>
@@ -44,13 +43,13 @@ const IncomeExpense = () => {
             </Typography>
           </Paper>
         </Grid>
-        <Grid item sm={6} justify="center" alignItems="center">
+        <Grid item sm={6}>
           <Paper className={classes.paper}>
           <Typography className={classes.title} color="textSecondary" gutterBottom>
                 Expenses
             </Typography>
             <Typography variant="h5" component="h2">
-                PKR {-expenses}
+                PKR {+expenses>0 ? -expenses : expenses}
             </Typography>
           </Paper>
         </Grid>

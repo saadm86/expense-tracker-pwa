@@ -7,8 +7,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
       textAlign: 'center',
-      opacity: '90%'
-
+      opacity: '90%',
     },
     menuButton: {
       marginRight: theme.spacing(2),
@@ -24,7 +23,7 @@ const Header = () => {
 
     return (
       <div className={classes.root}>
-        <AppBar position="static">
+        <AppBar position="static" color="inherit">
             <Typography variant="h6" className={classes.title}>
               Expense Tracker App
             </Typography>

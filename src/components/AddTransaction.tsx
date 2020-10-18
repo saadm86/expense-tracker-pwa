@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme: Theme) =>
         opacity: '90%',
     textAlign: 'center',
       '& > *': {
-        margin: theme.spacing(2),
+        margin: theme.spacing(1),
       },
     },
   }),
@@ -25,12 +25,12 @@ const AddTransaction = () => {
 
     return (
       <form onSubmit={e=>e.preventDefault} className={classes.root} noValidate autoComplete="off">
-        <TextField onChange={(e=>setDesc(e.target.value))} type="text" id="standard-basic" label="Enter Description" />
+        <TextField onChange={(e=>setDesc(e.target.value))} type="string" id="Description" label="Enter Description" />
 
-        <TextField onChange={(e=>setAmount(e.target.value))} type="number" id="standard-basic" label="Enter Amount" />
+        <TextField onChange={(e=>setAmount(e.target.value))} type="number" id="amount" label="Enter Amount" />
         <div>
-            <Button onClick={()=>dispatch(addTrans({amount:+amount, desc}))} variant="contained" color="primary">
-                Add
+            <Button fullWidth={true} size="small" onClick={()=>dispatch(addTrans({amount:+amount, desc}))} variant="contained" color="secondary">
+                Add Transaction
             </Button>
         </div>
       </form>

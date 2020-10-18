@@ -6,9 +6,7 @@ export const transactionSlice = createSlice({
 
   name: 'transactions',
   initialState: [
-    {amount: 500, desc: 'cash'},
-    {amount: -40, desc: 'book'},
-    {amount: -200, desc: 'camera'},
+    {amount: null,desc:""}
   ],
   reducers: {
     addTrans: (state, action) => {
@@ -16,10 +14,9 @@ export const transactionSlice = createSlice({
     },
 
     deleteTrans: (state, action) => {
-      return(
-        state.filter(key=>key.desc!== action.payload.desc)
-      )
-      
+        return(
+          state.filter(key=>key.desc!== action.payload.desc)
+        )
     },
   },
 });

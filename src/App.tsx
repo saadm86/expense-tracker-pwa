@@ -14,8 +14,8 @@ function App() {
     <div className = "App">
     <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="sm">
-        <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '100vh' }}>
+      <Container maxWidth='xs'>
+        <Typography component="div" style={{ backgroundColor: '#91e5eb', height: 'auto' }}>
           <Header />
           <Balance />
           <IncomeExpense />
