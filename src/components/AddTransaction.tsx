@@ -23,16 +23,26 @@ const AddTransaction = () => {
     const classes = useStyles();
     const dispatch = useDispatch()
 
+    const addHandle = () => {
+      if (amount===undefined || desc === undefined) {
+        alert("Amount and Description cannot be empty")
+      } else {
+        dispatch(addTrans({amount:+amount, desc}))
+      }
+    }
+
     return (
-      <form onSubmit={e=>e.preventDefault} className={classes.root} noValidate autoComplete="off">
-        <TextField onChange={(e=>setDesc(e.target.value))} type="string" id="Description" label="Enter Description" />
+      <form className={classes.root} noValidate autoComplete="off">
+        <TextField onFocus={(e) => e.target.value === null} onChange={(e=>setDesc(e.target.value))} type="text" id="Description" label="Enter Description" />
 
         <TextField onChange={(e=>setAmount(e.target.value))} type="number" id="amount" label="Enter Amount" />
-        <div>
-            <Button fullWidth={true} size="small" onClick={()=>dispatch(addTrans({amount:+amount, desc}))} variant="contained" color="secondary">
-                Add Transaction
-            </Button>
+        
+        <div>    
+          <Button fullWidth={true} size="small" onClick={addHandle} variant="contained" color="secondary">
+              Add Transaction
+          </Button>
         </div>
+
       </form>
     );
 }
